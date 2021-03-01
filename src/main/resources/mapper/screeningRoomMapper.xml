@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lsh.movie.dao.Screening_roomMapper">
+
+    <select id="selectRoom" statementType="PREPARED" resultType="Screening_room">
+        select room_name,room_no from theater t
+            join screening_room s on t.theater_no = s.theater_no
+        where t.theater_no = #{theater_no};
+    </select>
+
+</mapper>

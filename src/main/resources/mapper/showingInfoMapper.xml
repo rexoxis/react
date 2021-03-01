@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lsh.movie.dao.Showing_infoMapper">
+    <insert id="insertShowing_Info" statementType="PREPARED" parameterType="Showing_Info">
+        insert into showing_info (theater_no, movie_no, room_no, show_time, show_date) value (#{theater_no},#{movie_no},#{room_no},#{show_time},#{show_date})
+    </insert>
+
+    <select id="selectAllList" statementType="PREPARED" resultType="Showing_Info">
+        select m.title as movie_title, t2.name as theater_name, s.show_date, s.show_time, s.theater_no, s.showing_info_no
+        from showing_info as s
+                join movie_info as m on m.movie_no = s.movie_no
+                join theater as t2 on s.theater_no = t2.theater_no
+                order by s.theater_no,s.show_date desc, show_time desc
+    </select>
+
+    <update id="modifyShowing_Info" statementType="PREPARED" parameterType="Showing_Info">
+        update showing_info
+            <set>
+                <if test="movie_no != 0">movie_no = #{movie_no},</if>
+                <if test="theater_no != null">theater_no = #{theater_no},</if>
+                <if test="show_date != null">show_date = #{show_date},</if>
+                <if test="show_time != null">show_time = #{show_time}</if>
+            </set>
+        where showing_info_no = #{showing_info_no};
+    </update>
+
+    <delete id="deleteShowing_info" parameterType="int">
+        delete from showing_info where showing_info_no = #{showing_info_no}
+    </delete>
+
+</mapper>
