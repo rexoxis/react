@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lsh.movie.dao.Movie_infoMapper">
+
+    <insert id="insertMovie" statementType="PREPARED" parameterType="Movie_Info">
+        insert into movie_info (title, summary, director, actor, genre, running_time, opening_date, poster, opencheck)
+        value (#{title}, #{summary}, #{director}, #{actor}, #{genre}, #{running_time}, #{opening_date}, #{poster}, #{opencheck})
+    </insert>
+
+    <select id="selectAllList" statementType="PREPARED" resultType="Movie_Info">
+        SELECT distinct * FROM movie_info order by opening_date desc
+    </select>
+
+    <select id="selectPageList" statementType="PREPARED" resultType="Movie_Info">
+        select m.* FROM(
+            SELECT distinct * FROM movie_info order by opening_date desc
+        ) m
+        LIMIT #{startNum}, #{perPage}
+    </select>
+
+    <select id="selectOneList" statementType="PREPARED" resultType="Movie_Info">
+        select * from movie_info where movie_no = #{movie_no}
+    </select>
+
+    <select id="countList" statementType="PREPARED" resultType="int">
+        select count(movie_no) from movie_info where opencheck = #{opencheck}
+    </select>
+
+    <update id="modifyMovie" statementType="PREPARED" parameterType="Movie_Info">
+        update movie_info set title = #{title}, summary = #{summary}, director = #{director}, actor = #{actor}, genre = #{genre},
+                              running_time = #{running_time}, opening_date = #{opening_date}, poster = #{poster}, opencheck = #{opencheck}
+        where movie_no = #{movie_no}
+    </update>
+
+    <delete id="deleteMovie" statementType="PREPARED" parameterType="int">
+        delete from movie_info where movie_no = #{movie_no}
+    </delete>
+
+</mapper>

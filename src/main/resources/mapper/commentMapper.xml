@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lsh.movie.dao.CommentMapper">
+
+    <insert id="insertComment" statementType="PREPARED" parameterType="Comment">
+        insert into comment (userid, content, score, movie_no) value (#{userid},#{content},#{score},#{movie_no})
+    </insert>
+
+    <select id="selectComment" statementType="PREPARED" resultType="Comment">
+        select c.* FROM(
+                            SELECT * FROM comment where movie_no = #{movie_no} order by regdate desc
+                        ) c
+        LIMIT #{startNum}, #{perPage}
+    </select>
+
+
+    <select id="countComment" statementType="PREPARED" resultType="int">
+        select count(comment_no) from comment where movie_no = #{movie_no}
+    </select>
+
+</mapper>

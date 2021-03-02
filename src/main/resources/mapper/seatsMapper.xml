@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lsh.movie.dao.SeatsMapper">
+    <insert id="insertSeats" statementType="PREPARED" parameterType="java.util.List">
+        insert into seats (seat_name, seat_check, room_no)
+        values
+        <foreach collection="arrayList" item="item" separator=" , ">
+            (#{item.seat_name}, #{item.showing_info_no}, #{item.room_no})
+        </foreach>
+    </insert>
+
+<!--    <select id="selectSeats" statementType="PREPARED" resultType="Seats">-->
+<!--        select * from seats where showing_info_no = #{showing_no}-->
+<!--    </select>-->
+
+<!--    <select id="countSeats" statementType="PREPARED" resultType="int">-->
+<!--        select count(showing_info_no) from seats where showing_info_no = #{showing_no}-->
+<!--    </select>-->
+</mapper>

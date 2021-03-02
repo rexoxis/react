@@ -4,16 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lsh.movie.dao.MemberMapper">
-<!--
-    <insert id="insertMember" statementType="PREPARED" parameterType="Members">
+
+    <insert id="insertMember" statementType="PREPARED" parameterType="Member">
         insert into MEMBERS (NAME, USERID, PASSWD, ZIPCODE, ADDR, EMAIL, PHONE) value (#{name},#{userid},#{passwd},#{zipcode},#{addr},#{email},#{phone})
     </insert>
 
-    <select id="selectLogin" statementType="PREPARED" resultType="String">
+    <select id="checkID" statementType="PREPARED" resultType="String">
         select USERID from MEMBERS where USERID = #{userid} and PASSWD = #{passwd}
     </select>
--->
-    <select id="getAllMembers" resultType="com.lsh.movie.vo.Members" >
+
+    <select id="getAllMembers" resultType="Member" >
         SELECT * FROM MEMBERS;
     </select>
 

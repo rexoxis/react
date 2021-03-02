@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lsh.movie.dao.ReserveMapper">
+
+    <select id="countGroupByName" statementType="PREPARED" resultType="Showing_Info">
+        select t.name as theater_name,count(movie_no) as countName from showing_info as s
+        join theater as t on s.theater_no = t.theater_no
+        <if test="movie_no != null">
+            where movie_no = #{movie_no}
+        </if>
+        group by t.name
+    </select>
+
+    <select id="selectShowingMovies" statementType="PREPARED" resultType="Showing_Info">
+        select m.title as movie_title, m.movie_no, s.showing_info_no, t.name as theater_name, s.show_date, s.show_time, s.theater_no
+        from showing_info as s
+        join movie_info as m on m.movie_no = s.movie_no
+        join theater as t on s.theater_no = t.theater_no
+        where t.name = #{theater_name}
+        <if test="movie_no != null">
+            and s.movie_no = #{movie_no}
+        </if>
+<!--        <if test="show_time != null">-->
+<!--            and show_time like concat(#{show_time},'%')-->
+<!--        </if>-->
+        order by show_time
+    </select>
+
+    <select id="selectDate" statementType="PREPARED" resultType="Showing_Info">
+        select * from showing_info where show_date = #{show_date}
+    </select>
+
+
+</mapper>
