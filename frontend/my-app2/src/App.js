@@ -1,24 +1,47 @@
-import logo1 from './img/movie_poster1.jpg';
-import logo2 from './img/movie_poster2.jpg';
-import logo3 from './img/movie_poster3.jpg';
-import logo4 from './img/movie_poster4.jpg';
-import logo5 from './img/movie_poster5.jpg';
-import './App.css';
+import React, {Component} from 'react';
+import axios from "axios";
+import MoviesPage from "./page/movie/moviesPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div className="Main_img">
-          <img src={logo1} className="App-logo" alt="logo1" />
-          <img src={logo2} className="App-logo" alt="logo2" />
-          <img src={logo3} className="App-logo" alt="logo3" />
-          <img src={logo4} className="App-logo" alt="logo4" />
-          <img src={logo5} className="App-logo" alt="logo5" />
+class App extends Component {
+
+  state = {
+    loading : false,
+    commList : []
+  };
+
+  loadComment = async () => {
+    axios
+        .get('/movies/1')
+        .then(({ data }) => {
+          this.setState({
+            loading : true,
+            movieList : data.movieList
+          });
+        })
+        .catch(e => {
+          console.error(e);
+          this.setState({
+            loading : false
+          });
+        });
+  };
+
+  componentDidMount() {
+    this.loadComment();
+  }
+
+  render() {
+
+      const { movieList } = this.state;
+
+      console.log(movieList);
+
+      return(
+        <div>
+            <MoviesPage Movielist = {movieList}/>
         </div>
-      </header>
-    </div>
-  );
-}
+      );
 
+  }
+}
 export default App;
