@@ -6,6 +6,7 @@ class MoviesPage extends Component {
 
     render() {
         const {Movielist} = this.props;
+
         return (
             <div className="movieArea">
                 {Movielist && Movielist.map((moviedata) => {
