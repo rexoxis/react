@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import axios from "axios";
 import MoviesPage from "./page/movie/moviesPage";
 import Clock from "./page/movie/testTimer";
+import MovieDetail from "./page/movie/movieDetail";
+import {Route} from "react-router-dom"
+
 
 class App extends Component {
 
@@ -41,6 +44,7 @@ class App extends Component {
         <div>
             <MoviesPage Movielist = {movieList}/>
             <Clock/>
+
         </div>
       );
 
