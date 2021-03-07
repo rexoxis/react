@@ -7,7 +7,7 @@ import {Route} from "react-router-dom"
 
 
 class App extends Component {
-
+/*
   state = {
     loading : false,
     commList : []
@@ -32,19 +32,21 @@ class App extends Component {
 
   componentDidMount() {
     this.loadComment();
-  }
+  }*/
 
   render() {
-
+    {/*
       const { movieList } = this.state;
 
       console.log(movieList);
-
+*/}
       return(
         <div>
+            {/*
             <MoviesPage Movielist = {movieList}/>
-            <Clock/>
-
+            <Clock/>*/}
+            <Route exact path = "/" component={MoviesPage} />
+            <Route path = "/detail" component={MovieDetail} />
         </div>
       );
 
