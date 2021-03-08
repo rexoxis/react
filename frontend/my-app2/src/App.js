@@ -1,53 +1,87 @@
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import axios from "axios";
 import MoviesPage from "./page/movie/moviesPage";
 import Clock from "./page/movie/testTimer";
 import MovieDetail from "./page/movie/movieDetail";
-import {Route} from "react-router-dom"
-
+import {Link, Route, Router} from "react-router-dom"
+import Profile from "./page/login/profile";
+import AuthRoute from "./page/login/authRoute";
+import SignIn from "./page/login/auth";
+import LoginForm from "./page/login/loginForm";
+import LogoutButton from "./page/login/logOut";
 
 class App extends Component {
-/*
-  state = {
-    loading : false,
-    commList : []
-  };
+    /*
+      state = {
+        loading : false,
+        commList : []
+      };
 
-  loadComment = async () => {
-    axios
-        .get('/movies/1')
-        .then(({ data }) => {
-          this.setState({
-            loading : true,
-            movieList : data.movieList
-          });
-        })
-        .catch(e => {
-          console.error(e);
-          this.setState({
-            loading : false
-          });
-        });
-  };
+      loadComment = async () => {
+        axios
+            .get('/movies/1')
+            .then(({ data }) => {
+              this.setState({
+                loading : true,
+                movieList : data.movieList
+              });
+            })
+            .catch(e => {
+              console.error(e);
+              this.setState({
+                loading : false
+              });
+            });
+      };
 
-  componentDidMount() {
-    this.loadComment();
-  }*/
+      componentDidMount() {
+        this.loadComment();
+      }*/
 
   render() {
+    const [user, setUser] = useState(null);
+    const authenticated = user != null;
+
+    const login = ({ email, password }) => setUser(SignIn({ email, password }));
+    const logout = () => setUser(null);
     {/*
       const { movieList } = this.state;
 
       console.log(movieList);
 */}
       return(
-        <div>
+          <Router>
+        <header>
             {/*
             <MoviesPage Movielist = {movieList}/>
             <Clock/>*/}
-            <Route exact path = "/" component={MoviesPage} />
+            <Link to={"/"}>Home</Link>
+            <Link to={"/detail"}>movie</Link>
+            <Link to={"/profile"}>profile</Link>
+            {authenticated ? (
+                <LogoutButton logout={logout} />
+            ) : (
+                <Link to="/login">
+                    <button>Login</button>
+                </Link>
+            )}
+
+
+            <Route exact path = "/" component={Clock} />
             <Route path = "/detail" component={MovieDetail} />
-        </div>
+            <AuthRoute
+                authenticated={authenticated}
+                path="/profile"
+                render={props => <Profile user={user} {...props} />}
+            />
+            <Route
+                path="/login"
+                render={props => (
+                    <LoginForm authenticated={authenticated} login={login} {...props} />
+                )}
+            />
+        </header>
+          </Router>
       );
 
   }
