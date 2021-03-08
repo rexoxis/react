@@ -4,9 +4,8 @@ import App from "./App";
 
 
 const Root = () => (
-    <BrowserRouter>
-        <App/>
-    </BrowserRouter>
+
+    <App/>
 
 );
 

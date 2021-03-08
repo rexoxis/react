@@ -1,16 +1,16 @@
-import React, {Component, useState, useEffect} from 'react';
+import React, {Component, useState} from 'react';
 import axios from "axios";
 import MoviesPage from "./page/movie/moviesPage";
 import Clock from "./page/movie/testTimer";
 import MovieDetail from "./page/movie/movieDetail";
-import {Link, Route, Router} from "react-router-dom"
+import {Link, Route, BrowserRouter as Router} from "react-router-dom"
 import Profile from "./page/login/profile";
 import AuthRoute from "./page/login/authRoute";
 import SignIn from "./page/login/auth";
 import LoginForm from "./page/login/loginForm";
 import LogoutButton from "./page/login/logOut";
 
-class App extends Component {
+function App (){
     /*
       state = {
         loading : false,
@@ -38,17 +38,17 @@ class App extends Component {
         this.loadComment();
       }*/
 
-  render() {
+
     const [user, setUser] = useState(null);
     const authenticated = user != null;
 
     const login = ({ email, password }) => setUser(SignIn({ email, password }));
     const logout = () => setUser(null);
-    {/*
+    /*
       const { movieList } = this.state;
 
       console.log(movieList);
-*/}
+*/
       return(
           <Router>
         <header>
@@ -84,6 +84,6 @@ class App extends Component {
           </Router>
       );
 
-  }
+
 }
 export default App;
