@@ -1,89 +1,49 @@
-import React, {Component, useState} from 'react';
-import axios from "axios";
-import MoviesPage from "./page/movie/moviesPage";
+import React, {useState} from 'react';
+import {BrowserRouter as Router, Link, Route} from "react-router-dom";
+import header from "./css/header.css";
 import Clock from "./page/movie/testTimer";
 import MovieDetail from "./page/movie/movieDetail";
-import {Link, Route, BrowserRouter as Router} from "react-router-dom"
-import Profile from "./page/login/profile";
-import AuthRoute from "./page/login/authRoute";
-import SignIn from "./page/login/auth";
-import LoginForm from "./page/login/loginForm";
-import LogoutButton from "./page/login/logOut";
 
-function App (){
-    /*
-      state = {
-        loading : false,
-        commList : []
-      };
+function App() {
+    return (
 
-      loadComment = async () => {
-        axios
-            .get('/movies/1')
-            .then(({ data }) => {
-              this.setState({
-                loading : true,
-                movieList : data.movieList
-              });
-            })
-            .catch(e => {
-              console.error(e);
-              this.setState({
-                loading : false
-              });
-            });
-      };
+        <Router>
+            <header>
+                <nav className="navbar">
+                    <div className="navbar_logo">
+                        <Link to="/"><img src="./img/logo2.jpg" alt="Logo"/></Link>
+                    </div>
 
-      componentDidMount() {
-        this.loadComment();
-      }*/
+                    <ul className="navbar_menu">
+                        <li><Link to="/">메인</Link></li>
+                        <li><Link to="/movie/movies">영화</Link></li>
+                        <li><Link to="/movie/reserve">예매하기</Link></li>
+                        <li><Link to="#">공지사항</Link></li>
+                        <li><Link to="/movie/movie_register">영화등록/관리</Link></li>
+                        <li><Link to="/movie/theater_register">지점등록/관리</Link></li>
+                    </ul>
 
+                    <ul className="navbar_member">
+                        <li><Link to="/login/login">로그인</Link></li>
+                        <li><Link to="/join/joinmember">회원가입</Link></li>
+                        <li><Link to="/login/logout">로그아웃</Link></li>
+                    </ul>
 
-    const [user, setUser] = useState(null);
-    const authenticated = user != null;
+                    <Link to="#" className="navbar_btn">menu</Link>
+                </nav>
 
-    const login = ({ email, password }) => setUser(SignIn({ email, password }));
-    const logout = () => setUser(null);
-    /*
-      const { movieList } = this.state;
-
-      console.log(movieList);
-*/
-      return(
-          <Router>
-        <header>
-            {/*
-            <MoviesPage Movielist = {movieList}/>
-            <Clock/>*/}
-            <Link to={"/"}>Home</Link>
-            <Link to={"/detail"}>movie</Link>
-            <Link to={"/profile"}>profile</Link>
-            {authenticated ? (
-                <LogoutButton logout={logout} />
-            ) : (
-                <Link to="/login">
-                    <button>Login</button>
-                </Link>
-            )}
-
-
-            <Route exact path = "/" component={Clock} />
-            <Route path = "/detail" component={MovieDetail} />
-            <AuthRoute
-                authenticated={authenticated}
-                path="/profile"
-                render={props => <Profile user={user} {...props} />}
-            />
-            <Route
-                path="/login"
-                render={props => (
-                    <LoginForm authenticated={authenticated} login={login} {...props} />
-                )}
-            />
-        </header>
-          </Router>
-      );
-
-
+                <Route exact path = "/" component={Clock} />
+                <Route path = "/movie/movies" component={MovieDetail} />
+                <Route path = "/movie/reserve" component={MovieDetail} />
+                <Route path = "/notice" component={MovieDetail} />
+                <Route path = "/movie/movie_register" component={MovieDetail} />
+                <Route path = "/movie/theater_register" component={MovieDetail} />
+                <Route path = "/login/login" component={MovieDetail} />
+                <Route path = "/join/joinmember" component={MovieDetail} />
+                <Route path = "/login/logout" component={MovieDetail} />
+            </header>
+        </Router>
+    );
 }
+
 export default App;

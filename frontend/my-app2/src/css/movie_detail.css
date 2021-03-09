@@ -1,0 +1,163 @@
+
+.input_comment textarea {
+    resize: none;
+}
+
+/* 메인 부분 */
+.main{
+    background-color: white;
+/*    border: 2px solid green;*/
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+.container {
+	margin: 0 20%;
+}
+
+.contents{
+    padding: 1% 0;
+    background-color: white;
+    border-bottom: 3px solid orange;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.movie_info_detail p {
+	margin-bottom: 8%;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 1%;
+}
+
+.movie_info_img {
+    width: 300px;
+    /*height: 400px;*/
+}
+
+.movie_info_img img {
+    width: 100%;
+    /*height: 400px;*/
+    height: 400px;
+}
+
+.movie_info_img button {
+    width: 100%;
+    border-radius: 3px;
+    /*margin-top: -15px;*/
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.summary {
+    border-bottom: 3px solid orange; 
+}
+
+/* 후기/감상평 부분 */
+
+
+.comment_view ul {
+/*    border: 1px solid green;*/
+}
+
+.comment_view ul li {
+/*    border: 1px solid blue;*/
+    background-color: #e8eaf6;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+    margin-left: -30px;
+    height: auto;
+    align-items: center;
+}
+
+.input_comment {
+    background-color: #e8eaf6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.set_userid {
+    border-right: 1px solid silver;
+    margin-left: 1%;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.far {
+    font-size: 40px;
+    margin-left: 1%;
+}
+
+.score {
+    border-right: 1px solid silver;
+    flex-grow: 1;
+    text-align: center;
+}
+
+#content {
+/*    border: 1px solid red;*/
+    flex-grow: 3;
+    margin-left: 2%;
+    width: 40%;
+/*    height: 70px;*/
+}
+
+.okbtn {
+	flex-grow: 0;
+    height: 100%;
+}
+
+.user_id {
+    border-right: 1px solid silver;
+    margin-left: 1%;
+    padding-right: 1%;
+    flex-grow: 0;
+}
+
+.user_score {
+    border-right: 1px solid silver;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.user_comment {
+/*    border: 1px solid red;*/
+    flex-grow: 3;
+    margin-left: 2%;
+    width: 40%;
+/*    height: 70px;*/
+}
+
+.regdate {
+	flex-grow: 1;
+    text-align: center;
+}
+
+.page_nation ul {
+    padding: 0;
+    margin: 1% 0;
+    display: flex;
+    justify-content: center;
+    /*    border: 1px solid black;*/
+}
+
+.page_nation ul li {
+    /*    padding: 2% 0 0 1%;*/
+    margin: 0 10px;
+}
+
+.page_nation ul li a{
+    color: black;
+    font-weight: bold;
+}

@@ -1,0 +1,195 @@
+/* 메인 부분 */
+
+
+.main {
+    background-color: white;
+    border: 2px solid green;
+    padding: 0;
+    flex: 1;
+}
+
+.container {
+	margin: 0 15%;
+    /*border: 1px solid green;*/
+    height: 770px;
+}
+
+.mainbody {
+    /*border: 1px solid red;*/
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mainbody p {
+    padding: 0;
+    margin-left: 2%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mainbody ul {
+    height: 345px;
+    overflow:auto;
+}
+
+.movie_area {
+    flex-grow: 1;
+}
+
+.movie_select {
+    border: 1px solid silver;
+}
+.movie_select ul {
+    /*overflow:auto;*/
+}
+
+.movie_select ul li {
+    margin-left: -12%;
+    padding: 2% 0;
+}
+
+.movie_select button {
+    border: 0;
+    outline: none;
+    background-color: white;
+    font-size: 16px;
+}
+
+.movie_select button:hover {
+    cursor: pointer;
+    color: darkcyan;
+}
+
+
+.theater_area {
+    flex-grow: 1;
+    /*width: 100%;*/
+}
+.theater_select{
+    border: 1px solid silver;
+    width: 100%;
+}
+.theater_select ul {
+    width: 100%;
+}
+
+.theater_select ul li {
+    margin-left: -10%;
+    padding: 1% 0;
+
+}
+
+.theater_select button {
+    border: 0;
+    outline: none;
+    background-color: white;
+    font-size: 16px;
+}
+
+.theater_select button:hover {
+    cursor: pointer;
+    color: darkcyan;
+}
+
+.time_area {
+    /*border: 1px solid silver;*/
+    flex-grow: 2;
+    /*width: 100%;*/
+}
+
+.time_select {
+    border: 1px solid silver;
+}
+
+.selected_movie_area span{
+    margin-left: 5%;
+    border-bottom: 1px solid silver;
+}
+
+.selected_theater_area span {
+    margin-left: 5%;
+    border-bottom: 1px solid silver;
+}
+
+.selected_time_area span {
+    margin-left: 5%;
+    border-bottom: 1px solid silver;
+}
+
+.selected_seats_area span {
+    margin-left: 5%;
+    border-bottom: 1px solid silver;
+}
+
+.reserve_btn {
+    margin-top: 8%;
+    display: flex;
+    justify-content: center;
+}
+
+#reserve_btn {
+    margin-right: 3%;
+}
+
+.result span:hover {
+    cursor: pointer;
+    color: darkcyan;
+}
+
+.today h4{
+    margin-bottom: -1%;
+}
+
+.seats_area {
+    flex-grow: 5;
+}
+
+.seats_select {
+    border: 1px solid silver;
+    display: flex;
+    flex-direction: column;
+    /*height: 330px;*/
+}
+
+.numOfPeople {
+    /*height: 20px;*/
+    display: flex;
+    justify-content: center;
+    /*border: 1px solid silver;*/
+}
+
+.seats_wrap {
+    height: 345px;
+    margin-top: 3%;
+    /*border: 1px solid red;*/
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+}
+.seats p {
+    border: 1px solid blue;
+    /*display: inline;*/
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.seats {
+    /*border: 1px solid red;*/
+}
+.seat {
+    background-color: darkcyan;
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+}
+.seat:hover {
+    cursor: pointer;
+    background-color: orange;
+}
+
+.seat_space {
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}

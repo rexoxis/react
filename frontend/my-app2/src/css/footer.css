@@ -1,0 +1,21 @@
+/* 풋터 부분 */
+.footer{
+    /*margin-top: auto;*/
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.social_link{
+    margin: 0 0;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-around
+}
+
+.footer h3{
+    text-align: center;
+    font-size: 12px;
+}

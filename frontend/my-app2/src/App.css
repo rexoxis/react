@@ -1,14 +1,3 @@
 .App {
     text-align: center;
 }
-
-.Main_img {
-    display: flex;
-    flex-direction: row;
-}
-
-.Main_img img {
-    width : 200px;
-    height: 300px;
-
-}

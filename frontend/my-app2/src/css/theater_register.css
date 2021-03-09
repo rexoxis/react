@@ -1,0 +1,120 @@
+input {
+    margin-left: 2%;
+}
+.main{
+    background-color: #eceff1;
+    /*border: 2px solid green;*/
+    padding: 0;
+    flex: 1;
+}
+
+.container {
+    margin: 0 20%;
+    display: flex;
+}
+
+.theaterform_area {
+    border: 1px solid black;
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_area {
+    margin-left: 20%;
+}
+
+.theater_register {
+    margin-bottom: 15%;
+}
+
+.theater_room_alter {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+}
+
+.theater_room_list_area {
+    display: flex;
+    flex-direction: row;
+}
+
+.theater_room_list_area ul {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+    height: 300px;
+    overflow: auto;
+}
+.theater_room_list_area ul li {
+    /*border-bottom: 1px solid black;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.theater_list {
+    flex-grow: 2;
+}
+.room_list {
+    flex-grow: 2;
+}
+
+/* 좌석 부분 */
+.seatform_area {
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+}
+.seat_register {
+    display: flex;
+    flex-direction: column;
+}
+.seat_wrap {
+    /*height: 345px;*/
+    /*margin-top: 3%;*/
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.seats {
+    margin-left: 17%;
+}
+.screen {
+
+}
+.screen p {
+    border: 1px solid blue;
+    /*display: inline;*/
+    width: 50%;
+    margin: 1% 1% 1% 23%;
+    padding: 0;
+    text-align: center;
+}
+.seat {
+    background-color: darkcyan;
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+}
+.seat:hover {
+    cursor: pointer;
+    background-color: orange;
+}
+.seat_click {
+    background-color: orange;
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+}
+.seat_space {
+    background-color: #eceff1;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.seat_btn {
+    margin: 4% 0 0 42%;
+}

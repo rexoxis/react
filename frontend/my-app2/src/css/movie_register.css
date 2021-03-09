@@ -1,0 +1,227 @@
+/* 메인 부분 */
+textarea {
+    resize: none;
+}
+
+.main{
+    background-color: #eceff1;
+    /*border: 2px solid green;*/
+    padding: 0;
+    flex: 1;
+}
+
+.container {
+	margin: 0 20%;
+    display: flex;
+    /*height: auto;*/
+}
+
+.movieform_area{
+    /*border: 1px solid blue;*/
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.movie_register {
+    /*border: 1px solid blue;*/
+	display: flex;
+}
+
+.info_label {
+/*    border: 1px solid red;*/
+    margin-top: -4px;
+    display: flex;
+    flex-direction: column;
+}
+.movie_register span {
+/*    border: 1px solid blue;*/
+    margin-bottom: 1%;
+    /*flex-grow: 1;*/
+}
+
+.movie_register input {
+    /*flex-grow: 1;*/
+}
+
+.info_insert {
+    /*border: 1px solid blue;*/
+    /*flex-basis: 1px;*/
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+}
+
+.checkBox {
+    margin-left: 13%;
+}
+
+.movie_btnbox {
+    margin-top: 2%;
+    margin-left: 13%;
+}
+
+.showing_register {
+    /*border: 1px solid blue;*/
+	display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.poster {
+    margin-top: 133px;
+}
+
+.movie_list {
+    /*border: 1px solid silver;*/
+    width: 90%;
+    height: 100%;
+    /*margin-top: -4%;*/
+}
+
+.movie_list ul {
+    border: 1px solid black;
+    width: 80%;
+    height: 300px;
+    margin-top: 0;
+    /*height: 40%;*/
+    overflow-y: auto;
+}
+
+.movie_list ul li {
+    margin: 1% -6% ;
+    border-bottom: 1px solid silver;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie_list ul li .del_edit {
+    margin: 2px 0 0 30px;
+}
+.movie_list ul li .del_edit .fa-edit {
+    margin-right: 10px;
+}
+
+.movie_list ul li span{
+    margin-left: 2%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.movie_list ul li span:hover{
+    cursor: pointer;
+    /*background-color: silver;*/
+    color: violet;
+}
+
+/*극장별 상영정보*/
+.showingform_area {
+    /*border: 3px solid black;*/
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /*height: 100%;*/
+}
+
+.showing_info_area {
+    flex-grow: 1;
+    /*height: 100%;*/
+}
+
+.reg_btnbox {
+    margin: 2% 14%;
+}
+
+.theater_info {
+/*    border: 1px solid red;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.theater_info span {
+/*    border: 1px solid blue;*/
+    margin-bottom: 3%;
+}
+
+.theater_info_insert input {
+    margin-bottom: 2%;
+}
+
+.theater_info_insert {
+/*    border: 1px solid blue;*/
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+}
+
+.showinglist_area {
+    /*border: 1px solid orange;*/
+    flex-grow: 1;
+    margin-top: 10%;
+}
+
+.showing_movie_list {
+    /*border: 1px solid silver;*/
+    width: 100%;
+    /*height: auto;*/
+}
+
+.fa-trash-alt:hover{
+    cursor: pointer;
+    color: magenta;
+}
+.fa-edit:hover{
+    cursor: pointer;
+    color: #004d40;
+}
+
+
+
+
+.table {
+    border-collapse:collapse;
+    width: 85%;
+    border: 1px solid silver;
+    height: 425px;
+}
+
+.table thead {
+    /*border: 3px solid magenta;*/
+    float:left;
+    width: 100%;
+}
+.table thead tr {
+    /*border: 2px solid red;*/
+    width: 100%;
+}
+.table tbody {
+    overflow-y:auto;
+    overflow-x:hidden;
+    float:left;
+    width:100%;
+    height:390px
+}
+.table tbody tr {
+    display:table;
+    width:510px;
+}
+.table tbody tr:hover {
+    background-color: #e1f5fe;
+}
+
+.table th {
+    width:100px;
+    border-bottom: 1px solid silver;
+}
+.table td {
+    width:100px;
+    /*border: 1px solid blue;*/
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.table tr td .fa-edit {
+    margin-right: 8px;
+}

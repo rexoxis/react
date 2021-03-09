@@ -1,0 +1,105 @@
+/* 메인 부분 */
+
+.main{
+    background-color: white;
+/*    border: 2px solid green;*/
+    flex: 1;
+}
+
+.movie_nav {
+    border-bottom: 1px solid black;
+    margin: 1% 20%;
+}
+
+.movie_nav ul{
+    padding: 0;
+    margin: 1% 0;
+    display: flex;
+    justify-content: center;
+}
+.movie_nav ul li{
+	margin: 0 10px;
+/*    padding-left: 10px;*/
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.movie_nav ul li a{
+    color: black;
+}
+
+.movie_nav ul li a span:hover{
+    color: skyblue;
+}
+
+
+.movie_wrap{
+    padding: 0 5%;
+    margin: 0 15%;
+    background-color: white;
+/*    border: 2px solid orange;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.movie {
+	display: flex;
+    flex-direction: column;
+/*    border: 1px solid blue;*/
+    width: 200px;
+    height: 327px;
+    margin: 1% 1%;
+}
+
+.movie img {
+	width: 200px;
+    height: 260px;
+}
+
+.movie_info {
+    display: flex;
+    flex-direction: column;
+/*    border: 3px solid black;*/
+}
+
+.movie_info button:hover {
+    cursor: pointer;
+}
+
+.movie_info span {
+    text-align: center;
+}
+.movie_info a {
+    color: black;
+}
+
+.movie_title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.page_nation {
+/*    padding: 0 5%;*/
+/*    margin: 2% 15% 0 15%;*/
+}
+
+.page_nation ul {
+    padding: 0;
+    margin: 1% 0;
+    display: flex;
+    justify-content: center;
+/*    border: 1px solid black;*/
+}
+
+.page_nation ul li {
+/*    padding: 2% 0 0 1%;*/
+    margin: 0 10px;
+}
+
+.page_nation ul li a{
+    color: black;
+    font-weight: bold;
+    
+}
