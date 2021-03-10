@@ -1,9 +1,14 @@
 body{
     margin: 0;
-    font-family: 'Source Sans Pro';
+    font-family: -apple-system, BlinkMacSystemFont, 'Source Sans Pro', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 ul {

@@ -1,16 +1,17 @@
 import React from 'react';
-import App from "./App";
+import Header from "./Header";
 import Footer from "./Footer";
-
+import Main from "./Main";
 
 const Root = () => (
 <>
-    <App/>
+    <Header/>
+
     <Footer/>
 </>
 );
 
-export default Root
+export default Root;
 
 
 

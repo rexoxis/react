@@ -12,12 +12,12 @@ function Footer() {
                     <li><Link to="#">Facebook</Link></li>
                     <li><Link to="#">Instagram</Link></li>
                 </ul>
-                <h3>Copyright 2020. Lee All Rights Reserved.</h3>
+                <h3>Copyright 2021. Lee All Rights Reserved.</h3>
             </footer>
 
-                <Route path = "/" />
-                <Route path = "/movie/movies"/>
-                <Route path = "/movie/reserve"/>
+            <Route path="/"/>
+            <Route path="/movie/movies"/>
+            <Route path="/movie/reserve"/>
         </Router>
     );
 }

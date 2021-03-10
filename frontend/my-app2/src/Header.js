@@ -1,24 +1,27 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import header from "./css/header.css";
+import Logo from "./img/logo2.jpg";
 import Clock from "./page/movie/testTimer";
 import MovieDetail from "./page/movie/movieDetail";
+import Main from "./Main";
 
-function App() {
+
+function Header() {
     return (
 
         <Router>
             <header>
                 <nav className="navbar">
                     <div className="navbar_logo">
-                        <Link to="/"><img src="./img/logo2.jpg" alt="Logo"/></Link>
+                        <Link to="/"><img src={Logo} alt="Logo"/></Link>
                     </div>
 
                     <ul className="navbar_menu">
                         <li><Link to="/">메인</Link></li>
                         <li><Link to="/movie/movies">영화</Link></li>
                         <li><Link to="/movie/reserve">예매하기</Link></li>
-                        <li><Link to="#">공지사항</Link></li>
+                        <li><Link to="/notice">공지사항</Link></li>
                         <li><Link to="/movie/movie_register">영화등록/관리</Link></li>
                         <li><Link to="/movie/theater_register">지점등록/관리</Link></li>
                     </ul>
@@ -32,7 +35,7 @@ function App() {
                     <Link to="#" className="navbar_btn">menu</Link>
                 </nav>
 
-                <Route exact path = "/" component={Clock} />
+                <Route exact path = "/" component={Main}/>
                 <Route path = "/movie/movies" component={MovieDetail} />
                 <Route path = "/movie/reserve" component={MovieDetail} />
                 <Route path = "/notice" component={MovieDetail} />
@@ -46,4 +49,4 @@ function App() {
     );
 }
 
-export default App;
+export default Header;
