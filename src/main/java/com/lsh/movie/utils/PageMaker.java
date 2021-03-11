@@ -35,6 +35,7 @@ public class PageMaker {
         this.startNum = ((currentPage-1) * perPage);
         // list 조회시 마지막 번호
         this.endNum = startNum + perPage;
+
         this.opencheck = opencheck;
     }
 

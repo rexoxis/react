@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import header from "./css/header.css";
 import Logo from "./img/logo2.jpg";
-import Clock from "./page/movie/testTimer";
 import MovieDetail from "./page/movie/movieDetail";
 import Main from "./Main";
+import LoadMovies from "./page/movie/moviesPage";
 
 
 function Header() {
@@ -36,7 +36,7 @@ function Header() {
                 </nav>
 
                 <Route exact path = "/" component={Main}/>
-                <Route path = "/movie/movies" component={MovieDetail} />
+                <Route path = "/movie/movies" component={LoadMovies} />
                 <Route path = "/movie/reserve" component={MovieDetail} />
                 <Route path = "/notice" component={MovieDetail} />
                 <Route path = "/movie/movie_register" component={MovieDetail} />
