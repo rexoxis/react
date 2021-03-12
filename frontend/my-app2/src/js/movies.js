@@ -31,7 +31,7 @@ function loadData(currentPage) {
 }
 
 function drawMovieInfo(data) {
-    let pageMaker = data.pageMaker
+    let pageMaker = data.pageMaker;
     let currentPage = pageMaker.currentPage;
     let startPage = pageMaker.startPage;
     let endPage = pageMaker.endPage;

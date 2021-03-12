@@ -4,14 +4,19 @@ import axios from "axios";
 import {Link} from "react-router-dom";
 
 class LoadMovies extends Component {
-    state = {
-        loading: false,
-        movieList: []
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false,
+            movieList: []
+        };
+    }
 
     loadMovies = async () => {
+        const params = this.props.match.params.pageNo;
+
         axios
-            .get('/movies/1')
+            .get('/movies/'+params)
             .then(({data}) => {
                 this.setState({
                     loading: true,

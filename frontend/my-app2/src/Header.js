@@ -19,7 +19,7 @@ function Header() {
 
                     <ul className="navbar_menu">
                         <li><Link to="/">메인</Link></li>
-                        <li><Link to="/movie/movies">영화</Link></li>
+                        <li><Link to="/movies/1">영화</Link></li>
                         <li><Link to="/movie/reserve">예매하기</Link></li>
                         <li><Link to="/notice">공지사항</Link></li>
                         <li><Link to="/movie/movie_register">영화등록/관리</Link></li>
@@ -36,7 +36,7 @@ function Header() {
                 </nav>
 
                 <Route exact path = "/" component={Main}/>
-                <Route path = "/movie/movies" component={LoadMovies} />
+                <Route path = "/movies/:pageNo" component={LoadMovies} />
                 <Route path = "/movie/reserve" component={MovieDetail} />
                 <Route path = "/notice" component={MovieDetail} />
                 <Route path = "/movie/movie_register" component={MovieDetail} />
