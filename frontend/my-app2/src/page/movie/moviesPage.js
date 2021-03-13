@@ -8,7 +8,8 @@ class LoadMovies extends Component {
         super(props);
         this.state = {
             loading: false,
-            movieList: []
+            movieList: [],
+            pageMaker: []
         };
     }
 
@@ -20,7 +21,8 @@ class LoadMovies extends Component {
             .then(({data}) => {
                 this.setState({
                     loading: true,
-                    movieList: data.movieList
+                    movieList: data.movieList,
+                    pageMaker: data.pageMaker
                 });
             })
             .catch(e => {
@@ -65,6 +67,7 @@ class MoviesPage extends Component {
                     return(
                         <>
                             <MovieList
+                                key = {moviedata.movie_no}
                                 movie_no = {moviedata.movie_no}
                                 poster = {moviedata.poster}
                                 title = {moviedata.title}

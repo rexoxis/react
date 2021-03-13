@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import header from "./css/header.css";
-import Logo from "./img/logo2.jpg";
 import MovieDetail from "./page/movie/movieDetail";
 import Main from "./Main";
 import LoadMovies from "./page/movie/moviesPage";
@@ -14,7 +13,7 @@ function Header() {
             <header>
                 <nav className="navbar">
                     <div className="navbar_logo">
-                        <Link to="/"><img src={Logo} alt="Logo"/></Link>
+                        <Link to="/"><img src={process.env.PUBLIC_URL + '/img/logo2.jpg'} alt="Logo"/></Link>
                     </div>
 
                     <ul className="navbar_menu">
