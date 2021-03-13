@@ -19,11 +19,7 @@ function MovieList({movie_no, poster, title, opening_date}) {
             </div>
 
 
-            <div className="page_nation">
-                <ul id="pagination">
 
-                </ul>
-            </div>
         </div>
 
     );

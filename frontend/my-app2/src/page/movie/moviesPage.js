@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import MovieList from "./movieList";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import PageNation from "../PageNation";
 
 class LoadMovies extends Component {
     constructor(props) {
@@ -39,13 +40,21 @@ class LoadMovies extends Component {
 
 
     render(){
+        console.log(this.state);
         const { movieList } = this.state;
-        console.log(movieList);
-
+        const { pageMaker } = this.state;
+        console.log(pageMaker);
         return(
-            <MoviesPage Movielist = {movieList}/>
+            <>
+                <MoviesPage Movielist = {movieList}/>
+                <div className="page_nation">
+                    <ul id="pagination">
+                        <PageNation PageMaker = {pageMaker}/>
+                    </ul>
+                </div>
+            </>
         );
-    };
+    }
 }
 export default LoadMovies;
 
@@ -54,7 +63,7 @@ class MoviesPage extends Component {
 
     render() {
         const {Movielist} = this.props;
-
+        console.log(this.props);
         return (
             <div className="movieArea">
                 <nav className="movie_nav">
