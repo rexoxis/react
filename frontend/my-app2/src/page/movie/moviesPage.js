@@ -10,15 +10,23 @@ class LoadMovies extends Component {
         this.state = {
             loading: false,
             movieList: [],
-            pageMaker: []
+            pageMaker: [],
+            currentPage: 1
         };
+    }
+
+    handlePageChange = (currentPageNum) => {
+        this.setState({
+           currentPage: currentPageNum
+        });
     }
 
     loadMovies = async () => {
         const params = this.props.match.params.pageNo;
-
+console.log("test : " + this.state.currentPage);
+console.log("test2 : " + params);
         axios
-            .get('/movies/'+params)
+            .get('/movies/' + this.state.currentPage)
             .then(({data}) => {
                 this.setState({
                     loading: true,
@@ -39,6 +47,7 @@ class LoadMovies extends Component {
     }
 
 
+
     render(){
         console.log(this.state);
         const { movieList } = this.state;
@@ -49,7 +58,7 @@ class LoadMovies extends Component {
                 <MoviesPage Movielist = {movieList}/>
                 <div className="page_nation">
                     <ul id="pagination">
-                        <PageNation PageMaker = {pageMaker}/>
+                        <PageNation PageMaker = {pageMaker} onPageChange={this.handlePageChange}/>
                     </ul>
                 </div>
             </>
