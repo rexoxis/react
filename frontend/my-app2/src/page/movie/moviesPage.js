@@ -3,6 +3,7 @@ import MovieList from "./movieList";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import PageNation from "../PageNation";
+import movies from "../../css/movies.css";
 
 class LoadMovies extends Component {
     constructor(props) {
@@ -15,18 +16,19 @@ class LoadMovies extends Component {
         };
     }
 
-    handlePageChange = (currentPageNum) => {
+    /*handlePageChange = (currentPageNum) => {
         this.setState({
            currentPage: currentPageNum
         });
-    }
+    }*/
 
     loadMovies = async () => {
-        const params = this.props.match.params.pageNo;
+        const param = this.props.match.params.pageNo;
 console.log("test : " + this.state.currentPage);
-console.log("test2 : " + params);
+console.log("test2 : " + param);
+console.log("props : " + this.props.match.path);
         axios
-            .get('/movies/' + this.state.currentPage)
+            .get('/movies/' + param)
             .then(({data}) => {
                 this.setState({
                     loading: true,
@@ -46,11 +48,18 @@ console.log("test2 : " + params);
         this.loadMovies();
     }
 
-
+    componentDidUpdate(prevProps) {
+        /*if (this.state.currentPage !== prevState.currentPage) {
+            this.loadMovies();
+        }*/
+        if (this.props.match.params.pageNo !== prevProps.match.params.pageNo) {
+            this.loadMovies();
+        }
+    }
 
     render(){
         console.log(this.state);
-        const { movieList } = this.state;
+        const movieList = this.state.movieList; // 쓰는 방식 차이
         const { pageMaker } = this.state;
         console.log(pageMaker);
         return(
@@ -58,7 +67,7 @@ console.log("test2 : " + params);
                 <MoviesPage Movielist = {movieList}/>
                 <div className="page_nation">
                     <ul id="pagination">
-                        <PageNation PageMaker = {pageMaker} onPageChange={this.handlePageChange}/>
+                        <PageNation PageMaker = {pageMaker} path = {"/movies/"}/>
                     </ul>
                 </div>
             </>

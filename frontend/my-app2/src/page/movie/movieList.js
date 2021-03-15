@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import movies from "../../css/movies.css";
+
 
 function MovieList({movie_no, poster, title, opening_date}) {
     return (
