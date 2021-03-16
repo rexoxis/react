@@ -48,7 +48,7 @@ function App (){
       const { movieList } = this.state;
 
       console.log(movieList);
-*/
+    */
       return(
           <Router>
             <header>
@@ -65,7 +65,6 @@ function App (){
                         <button>Login</button>
                     </Link>
                 )}
-
 
                 <Route exact path = "/" component={Clock} />
                 <Route path = "/detail" component={MovieDetail} />

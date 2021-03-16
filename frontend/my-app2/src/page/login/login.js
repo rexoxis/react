@@ -12,12 +12,11 @@ class Login extends Component {
 
     loginCheck = async () => {
 
-        axios
-            .post('/login', {
+        axios.post('/login', {
                 data : {
                     userid : this.props.userid,
                     passwd : this.props.passwd
-                },
+                }
             })
             .then(({data}) => {
                 this.setState({
@@ -40,7 +39,7 @@ class Login extends Component {
 
     render() {
         const result = this.state.result;
-        return(
+        return (
             <>
                 {result}
             </>

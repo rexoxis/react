@@ -16,6 +16,7 @@ function LoginForm({ authenticated, login, location }) {
     }
 
     const { from } = location.state || { from: { pathname: "/" } }
+
     if (authenticated) return <Redirect to={from} />
 
     return (

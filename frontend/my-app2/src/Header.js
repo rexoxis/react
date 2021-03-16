@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import header from "./css/header.css";
 import MovieDetail from "./page/movie/movieDetail";
@@ -27,8 +27,8 @@ function Header() {
 
                     <ul className="navbar_member">
                         <li><Link to="/login/login">로그인</Link></li>
-                        <li><Link to="/join/joinmember">회원가입</Link></li>
                         <li><Link to="/login/logout">로그아웃</Link></li>
+                        <li><Link to="/join/joinmember">회원가입</Link></li>
                     </ul>
 
                     <Link to="#" className="navbar_btn">menu</Link>
@@ -36,6 +36,7 @@ function Header() {
 
                 <Route exact path = "/" component={Main}/>
                 <Route path = "/movies/:pageNo" component={LoadMovies} />
+                <Route path = "/movies/detail/:movieNo" component={MovieDetail} />
                 <Route path = "/movie/reserve" component={MovieDetail} />
                 <Route path = "/notice" component={MovieDetail} />
                 <Route path = "/movie/movie_register" component={MovieDetail} />
