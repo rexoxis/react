@@ -1,9 +1,10 @@
 import React from 'react';
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
-import header from "./css/header.css";
+import "./css/header.css";
 import MovieDetail from "./page/movie/movieDetail";
 import Main from "./Main";
 import LoadMovies from "./page/movie/moviesPage";
+import Comment from "./page/movie/comment";
 
 
 function Header() {
@@ -35,15 +36,16 @@ function Header() {
                 </nav>
 
                 <Route exact path = "/" component={Main}/>
-                <Route path = "/movies/:pageNo" component={LoadMovies} />
-                <Route path = "/movies/detail/:movieNo" component={MovieDetail} />
-                <Route path = "/movie/reserve" component={MovieDetail} />
-                <Route path = "/notice" component={MovieDetail} />
-                <Route path = "/movie/movie_register" component={MovieDetail} />
-                <Route path = "/movie/theater_register" component={MovieDetail} />
-                <Route path = "/login/login" component={MovieDetail} />
-                <Route path = "/join/joinmember" component={MovieDetail} />
-                <Route path = "/login/logout" component={MovieDetail} />
+                <Route exact path = "/movies/:pageNo" component={LoadMovies} />
+                <Route exact path = "/movies/detail/:movieNo" component={MovieDetail} />
+                <Route exact path = "/comments" component={Comment} />
+                <Route path = "/movie/reserve"  />
+                <Route path = "/notice"  />
+                <Route path = "/movie/movie_register" />
+                <Route path = "/movie/theater_register"  />
+                <Route path = "/login/login"  />
+                <Route path = "/join/joinmember"  />
+                <Route path = "/login/logout"  />
             </header>
         </Router>
     );

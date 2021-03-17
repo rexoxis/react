@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
-import movie_detail from "../../css/movie_detail.css"
+import "../../css/movie_detail.css"
+import Comment from "./comment";
 
 class MovieDetail extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class MovieDetail extends Component {
 
     loadDetail = async () => {
         const param = this.props.match.params.movieNo;
+        // console.log("detail params : " + param);
 
         axios
             .get('/movies/detail/' + param)
@@ -43,12 +45,12 @@ class MovieDetail extends Component {
     }
 
     render() {
-        const movie_info = this.state.movie_info;
+        const {movie_info} = this.state;
+        console.log(movie_info.movie_no);
         return (
-            <>
-            <div className="main">
-                <div className="container">
-                    <div className="contents">
+            <div className="detail_main">
+                <div className="detail_container">
+                    <div className="detail_contents">
                         <div className="movie_info_detail">
                             <p className="title">{movie_info.title}</p>
                             <p className="genre">{movie_info.genre}</p>
@@ -59,7 +61,7 @@ class MovieDetail extends Component {
                         </div>
 
                         <div className="movie_info_img">
-                            <Link to="#"><img src="/resources/img/movie_poster1.jpg" alt=""/></Link>
+                            <Link to="#"><img src={process.env.PUBLIC_URL + '/img/' + movie_info.poster} alt=""/></Link>
                             <button type="button">예매하기</button>
                         </div>
 
@@ -68,39 +70,13 @@ class MovieDetail extends Component {
                         <h4>줄거리</h4>
                         <p id="movie_summary">{movie_info.summary}</p>
 
-
                     </div>
 
-                    {/*후기 및 감상평*/}
-                    <div className="comment_box">
-                        <div className="comment_intro">
-                            <h2>영화후기 및 감상평을 남겨주세요!</h2>
-                        </div>
+                    <Comment movieNo = {movie_info.movie_no}/>
 
-
-                        <div className="comment_view" id="comment_view">
-                            <ul id="output_comment">
-                                <li>
-                                    <div className="input_comment">
-                                        <i className="far fa-comment-alt"></i>
-                                        <div className="set_userid" id="userid"></div>
-                                        <div className="score" id="score">10</div>
-                                        <textarea name="content" id="content" cols="50" rows="4"/>
-                                        <button type="button" className="okbtn" id="okbtn">감상평 등록</button>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="page_nation">
-                        <ul id="pagination">
-
-
-                        </ul>
-                    </div>
                 </div>
             </div>
-            </>
+
         );
     }
 }

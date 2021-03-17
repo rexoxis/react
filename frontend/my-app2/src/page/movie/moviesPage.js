@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import MovieList from "./movieList";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import PageNation from "../PageNation";
-import movies from "../../css/movies.css";
+import "../../css/movies.css";
 
 class LoadMovies extends Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class LoadMovies extends Component {
             loading: false,
             movieList: [],
             pageMaker: [],
-            currentPage: 1
+            // currentPage: 1
         };
     }
 
@@ -24,9 +24,9 @@ class LoadMovies extends Component {
 
     loadMovies = async () => {
         const param = this.props.match.params.pageNo;
-console.log("test : " + this.state.currentPage);
-console.log("test2 : " + param);
-console.log("props : " + this.props.match.path);
+// console.log("test : " + this.state.currentPage);
+// console.log("test2 : " + param);
+// console.log("props path : " + this.props.match.path);
         axios
             .get('/movies/' + param)
             .then(({data}) => {
@@ -61,7 +61,7 @@ console.log("props : " + this.props.match.path);
         console.log(this.state);
         const movieList = this.state.movieList; // 쓰는 방식 차이
         const { pageMaker } = this.state;
-        console.log(pageMaker);
+        // console.log(pageMaker);
         return(
             <>
                 <MoviesPage Movielist = {movieList}/>
@@ -81,7 +81,7 @@ class MoviesPage extends Component {
 
     render() {
         const {Movielist} = this.props;
-        console.log(this.props);
+        // console.log(Movielist);
         return (
             <div className="movieArea">
                 <nav className="movie_nav">
@@ -92,15 +92,14 @@ class MoviesPage extends Component {
                 </nav>
                 {Movielist && Movielist.map((moviedata) => {
                     return(
-                        <>
+                        <Fragment key = {moviedata.movie_no}>
                             <MovieList
-                                key = {moviedata.movie_no}
                                 movie_no = {moviedata.movie_no}
                                 poster = {moviedata.poster}
                                 title = {moviedata.title}
                                 opening_date = {moviedata.opening_date}
                             />
-                        </>
+                        </Fragment>
                     );
                 })}
             </div>

@@ -4,19 +4,19 @@
 }
 
 /* 메인 부분 */
-.main{
+.detail_main {
     background-color: white;
-/*    border: 2px solid green;*/
+    /*    border: 2px solid green;*/
     margin: 0;
     padding: 0;
     flex: 1;
 }
 
-.container {
-	margin: 0 20%;
+.detail_container {
+    margin: 0 20%;
 }
 
-.contents{
+.detail_contents {
     padding: 1% 0;
     background-color: white;
     border-bottom: 3px solid orange;
@@ -26,7 +26,7 @@
 }
 
 .movie_info_detail p {
-	margin-bottom: 8%;
+    margin-bottom: 8%;
 }
 
 .title {
@@ -57,18 +57,18 @@ button:hover {
 }
 
 .summary {
-    border-bottom: 3px solid orange; 
+    border-bottom: 3px solid orange;
 }
 
 /* 후기/감상평 부분 */
 
 
 .comment_view ul {
-/*    border: 1px solid green;*/
+    /*    border: 1px solid green;*/
 }
 
 .comment_view ul li {
-/*    border: 1px solid blue;*/
+    /*    border: 1px solid blue;*/
     background-color: #e8eaf6;
     display: flex;
     justify-content: space-between;
@@ -106,15 +106,15 @@ button:hover {
 }
 
 #content {
-/*    border: 1px solid red;*/
+    /*    border: 1px solid red;*/
     flex-grow: 3;
     margin-left: 2%;
     width: 40%;
-/*    height: 70px;*/
+    /*    height: 70px;*/
 }
 
 .okbtn {
-	flex-grow: 0;
+    flex-grow: 0;
     height: 100%;
 }
 
@@ -132,15 +132,15 @@ button:hover {
 }
 
 .user_comment {
-/*    border: 1px solid red;*/
+    /*    border: 1px solid red;*/
     flex-grow: 3;
     margin-left: 2%;
     width: 40%;
-/*    height: 70px;*/
+    /*    height: 70px;*/
 }
 
 .regdate {
-	flex-grow: 1;
+    flex-grow: 1;
     text-align: center;
 }
 
@@ -157,7 +157,7 @@ button:hover {
     margin: 0 10px;
 }
 
-.page_nation ul li a{
+.page_nation ul li a {
     color: black;
     font-weight: bold;
 }
