@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import CommentList from "./commentList";
+import PageNation from "../PageNation";
 
 class Comment extends React.Component {
 
@@ -8,23 +10,25 @@ class Comment extends React.Component {
         this.state = {
             loading: false,
             commentList: [],
-            pageMaker: []
+            pageMaker: [],
+            currentPage: 1
         };
     }
 
     loadComment = async () => {
-        const movieNo = this.props.movieNo;
-        // const pageNo = this.props.match.params.pageNo;
+        const pageNo = this.props.match.params.pageNo;
+        console.log(pageNo);
+        // if (pageNo === 1)
         // console.log("detail params : " + param);
-        console.log(this.props);
+        // console.log(this.props.movieNo);
 
         axios
-            .get('/comments/' + movieNo + '/1')
+            .get('/comments/' + this.props.movieNo + '/'+pageNo)
             .then(({data}) => {
                 this.setState({
                     loading: true,
-                    movie_info: data.movie_info,
-
+                    commentList: data.commentList,
+                    pageMaker: data.pageMaker
                 });
             })
             .catch(e => {
@@ -39,48 +43,51 @@ class Comment extends React.Component {
         this.loadComment();
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (this.props.match.params.pageNo !== prevProps.match.params.pageNo) {
-    //         this.loadComment();
-    //     }
-    // }
+    componentDidUpdate(prevProps) {
+        if (this.props.movieNo !== prevProps.movieNo) {
+            this.loadComment();
+        }
+    }
 
     render() {
-        const commentList = this.state.commentList; // 쓰는 방식 차이
-        const { pageMaker } = this.state;
-        return(
-            <div className="comment_box">
-                <div className="comment_intro">
-                    <h2>영화후기 및 감상평을 남겨주세요!</h2>
+        const commentList = this.state.commentList;
+        const {pageMaker} = this.state;
+        console.log(pageMaker);
+        return (
+            <>
+                <div className="comment_box">
+                    <div className="comment_intro">
+                        <h2>영화후기 및 감상평을 남겨주세요!</h2>
+                    </div>
+
+                    <div className="comment_view" id="comment_view">
+                        <ul id="output_comment">
+                            <li>
+                                <div className="input_comment">
+                                    <i className="far fa-comment-alt"></i>
+                                    <div className="set_userid" id="userid"></div>
+                                    <div className="score" id="score">10</div>
+                                    <textarea name="content" id="content" cols="50" rows="4"></textarea>
+                                    <button type="button" className="okbtn" id="okbtn">감상평 등록</button>
+                                </div>
+                            </li>
+                            {commentList && commentList.map((commentData) => {
+                                return (
+                                    <CommentList key={commentData.comment_no} commentData={commentData}/>
+                                );
+                            })}
+                        </ul>
+                    </div>
                 </div>
-
-
-                <div className="comment_view" id="comment_view">
-                    <ul id="output_comment">
-                        <li>
-                            <div className="input_comment">
-                                <i className="far fa-comment-alt"></i>
-                                <div className="set_userid" id="userid"></div>
-                                <div className="score" id="score">10</div>
-                                <textarea name="content" id="content" cols="50" rows="4"></textarea>
-                                <button type="button" className="okbtn" id="okbtn">감상평 등록</button>
-                            </div>
-                        </li>
-                        {commentList && commentList.map((commentData) => {
-                            return(
-                        <li id="commentList">
-                            <div className="user_id">{commentData.userid}</div>
-                            <div className="user_score">{commentData.score}</div>
-                            <div className="user_comment"><p>{commentData.content}</p></div>
-                            <div className="regdate">{commentData.regdate}</div>
-                        </li>
-                            );
-                        })}
+                <div className="page_nation">
+                    <ul id="pagination">
+                        <PageNation PageMaker = {pageMaker} path = {'/comments/'+this.props.movieNo + '/'}/>
                     </ul>
                 </div>
-            </div>
+            </>
         );
     }
 
 }
+
 export default Comment;

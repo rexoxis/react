@@ -12,7 +12,7 @@ class PageNation extends React.Component {
         const totalPage = PageMaker.totalPage;
         // const onPageChange = this.props.onPageChange;
         const path = this.props.path;
-        // console.log("path : " + path);
+        console.log("path : " + path);
         let pageRangeArray = [];
 
         for (let i = startPage; i <= endPage; i++) {
