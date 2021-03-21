@@ -1,7 +1,7 @@
 import React from "react";
 import {Route, Redirect} from "react-router-dom"
 
-function AuthRoute({ authenticated, component: Component, render, ...rest }) {
+function AuthRoute({authenticated, component: Component, render, ...rest}) {
     return (
         <Route
             {...rest}
@@ -14,7 +14,7 @@ function AuthRoute({ authenticated, component: Component, render, ...rest }) {
                     )
                 ) : (
                     <Redirect
-                        to={{ pathname: "/login", state: { from: props.location } }}
+                        to={{pathname: "/login", state: {from: props.location}}}
                     />
                 )
             }

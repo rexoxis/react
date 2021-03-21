@@ -23,11 +23,11 @@ class PageNation extends React.Component {
         // console.log(endPage+1);
 
 
-        let prv;
+        let prev;
         let next;
         // 이전 버튼
         if (currentPage > 5) {
-            prv = <li><span><Link to={path + (startPage - 1)}>이전</Link></span></li>
+            prev = <li><span><Link to={path + (startPage - 1)}>이전</Link></span></li>
         }
         // 다음 버튼
         if (endPage < totalPage) {
@@ -43,18 +43,17 @@ class PageNation extends React.Component {
         //     </>
         // ))
         // console.log("test" + items);
+
+
         return (
             <>
-                {prv}
+                {prev}
                 {pageRangeArray.map((pageNum) => (
                     <Fragment key={pageNum}>
-                        {/* {currentPage < 5 && <li><span><Link to="" id="' + (startPage-1) + '">이전</Link></span></li>}
-                    {endPage < totalPage && <li><span><Link to="" id="' + (endPage+1) + '">다음</Link></span></li>}*/}
                         <li><Link to={path + pageNum}><span>{pageNum}</span></Link></li>
                     </Fragment>
                 ))}
                 {next}
-
 
             </>
         );

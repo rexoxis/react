@@ -10,8 +10,6 @@ class MovieDetail extends Component {
         this.state = {
             loading: false,
             movie_info: [],
-            commentList: [],
-            pageMaker: []
         };
     }
 
@@ -64,15 +62,10 @@ class MovieDetail extends Component {
         if (this.props.match.params.movieNo !== prevProps.match.params.movieNo) {
             this.loadDetail();
         }
-        // if (this.props.match.params.movieNo !== prevProps.match.params.movieNo) {
-        //     this.loadDetail();
-        // }
     }
 
     render() {
         const {movie_info} = this.state;
-        // const {commentList} = this.state;
-        // const {pageMaker} = this.state;
         // console.log(movie_info.movie_no);
         return (
             <div className="detail_main">
@@ -80,10 +73,8 @@ class MovieDetail extends Component {
                     <MovieDetailList movie_info={movie_info}/>
 
                     <Comment movieNo={this.props.match.params.movieNo}/>
-
                 </div>
             </div>
-
         );
     }
 }
