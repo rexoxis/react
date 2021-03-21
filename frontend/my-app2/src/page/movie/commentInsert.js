@@ -9,12 +9,19 @@ class CommentInsert extends React.Component {
             content: 'test',
             score: 10,
             movie_no: 1,
-            result : 'fail'
+            result: 'fail'
         }
+
+        this.handle_insert = this.handle_insert.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handle_insert = () => {
-        this.insert_comment()
+    handle_insert() {
+        this.insert_comment();
+    }
+
+    handleChange(e) {
+        e.preventDefault();
     }
 
     insert_comment = async () => {
@@ -26,7 +33,7 @@ class CommentInsert extends React.Component {
                 score: this.state.score,
                 movie_no: this.state.movie_no,
             })
-            .then(({data})  => {
+            .then(({data}) => {
                 this.setState({
                     result: data
                 });
@@ -40,20 +47,21 @@ class CommentInsert extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <>
-            <li>
-                <div className="input_comment">
-                    <i className="far fa-comment-alt"></i>
-                    <div className="set_userid" id="userid"></div>
-                    <div className="score" id="score">10</div>
-                    <textarea name="content" id="content" cols="50" rows="4"></textarea>
-                    <button type="button" className="okbtn" id="okbtn">감상평 등록</button>
-                </div>
-            </li>
+                <li>
+                    <div className="input_comment">
+                        <i className="far fa-comment-alt"></i>
+                        <div className="set_userid" id="userid"></div>
+                        <div className="score" id="score">10</div>
+                        <textarea name="content" id="content" cols="50" rows="4"></textarea>
+                        <button type="button" className="okbtn" id="okbtn" onClick={this.handle_insert}>감상평 등록</button>
+                    </div>
+                </li>
             </>
         );
     }
 
 }
+
 export default CommentInsert;
