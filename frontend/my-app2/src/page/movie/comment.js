@@ -8,6 +8,7 @@ class Comment extends React.Component {
 
     constructor(props) {
         super(props);
+        this.TloadComment = null;
         this.state = {
             loading: false,
             commentList: [],
@@ -16,46 +17,24 @@ class Comment extends React.Component {
         };
     }
 
-
-
-    loadComment = async () => {
-        const pageNo = 1
-        console.log(pageNo);
-
-        // if (pageNo === 1)
-        // console.log("detail params : " + param);
-        // console.log(this.props.movieNo);
-
-        axios
-            .get('/comments/' + this.props.movieNo + '/'+ this.state.currentPage)
-            .then(({data}) => {
-                this.setState({
-                    loading: true,
-                    commentList: data.commentList,
-                    pageMaker: data.pageMaker
-                });
-            })
-            .catch(e => {
-                console.error(e);
-                this.setState({
-                    loading: false
-                });
-            });
-    };
-
-    componentDidMount() {
-        this.loadComment();
+    loadCommentWrapper(wrapper){
+        this.TloadComment = wrapper
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.movieNo !== prevProps.movieNo) {
-            this.loadComment();
-        }
-    }
+
+
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     console.log(this.state.commentList);
+    //     // if (this.state.commentList[0].comment_no !== prevState.commentList[0].comment_no) {
+    //     //     // this.loadComment();
+    //     //     console.log("test");
+    //     // }
+    // }
 
     render() {
-        const commentList = this.state.commentList;
-        const {pageMaker} = this.state;
+        // const commentList = this.state.commentList;
+        const {commentList, pageMaker} = this.state;
         console.log(pageMaker);
 
         return (
@@ -67,12 +46,8 @@ class Comment extends React.Component {
 
                     <div className="comment_view" id="comment_view">
                         <ul id="output_comment">
-                            <CommentInsert/>
-                            {commentList && commentList.map((commentData) => {
-                                return (
-                                    <CommentList key={commentData.comment_no} commentData={commentData}/>
-                                );
-                            })}
+                            <CommentInsert movie_no={this.props.movieNo}/>
+                            <CommentList commentData={commentList} loadCommentWrapper={this.loadCommentWrapper}/>
                         </ul>
                     </div>
                 </div>

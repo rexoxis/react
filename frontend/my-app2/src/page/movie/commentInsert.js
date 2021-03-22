@@ -8,8 +8,8 @@ class CommentInsert extends React.Component {
             userid: 'test',
             content: 'test',
             score: 10,
-            movie_no: 1,
-            result: 'fail'
+            movie_no: this.props.movie_no,
+            result: ''
         }
 
         this.handle_insert = this.handle_insert.bind(this);
@@ -18,10 +18,14 @@ class CommentInsert extends React.Component {
 
     handle_insert() {
         this.insert_comment();
+        // this.props.comment_load();
+
     }
 
     handleChange(e) {
-        e.preventDefault();
+        this.setState({
+            content: e.target.value
+        });
     }
 
     insert_comment = async () => {
@@ -35,7 +39,8 @@ class CommentInsert extends React.Component {
             })
             .then(({data}) => {
                 this.setState({
-                    result: data
+                    result: data,
+                    content: ''
                 });
             })
             .catch(e => {
@@ -52,9 +57,11 @@ class CommentInsert extends React.Component {
                 <li>
                     <div className="input_comment">
                         <i className="far fa-comment-alt"></i>
-                        <div className="set_userid" id="userid"></div>
+                        {/*userid 세팅해야되는 부*/}
+                        <div className="set_userid" id="userid" onChange={this.handleChange}/>
                         <div className="score" id="score">10</div>
-                        <textarea name="content" id="content" cols="50" rows="4"></textarea>
+                        <textarea name="content" id="content" cols="50" rows="4" value={this.state.content}
+                                  onChange={this.handleChange}/>
                         <button type="button" className="okbtn" id="okbtn" onClick={this.handle_insert}>감상평 등록</button>
                     </div>
                 </li>

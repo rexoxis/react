@@ -45,8 +45,8 @@ public class CommentController {
         Comment comment =  new Comment();
         comment.setUserid((String)commentParam.get("userid"));
         comment.setContent((String)commentParam.get("content"));
-        comment.setScore(Integer.parseInt((String)commentParam.get("score")));
-        comment.setMovie_no(Integer.parseInt((String)commentParam.get("movie_no")));
+        comment.setScore(Integer.parseInt((String.valueOf(commentParam.get("score")))));
+        comment.setMovie_no(Integer.parseInt((String.valueOf(commentParam.get("movie_no")))));
 
         int check = commentService.insertComment(comment);
 
