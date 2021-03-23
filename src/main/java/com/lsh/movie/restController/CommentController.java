@@ -20,7 +20,7 @@ public class CommentController {
     @RequestMapping(value = "/comments/{movie_no}/{pageNum}", method = RequestMethod.GET)
     public JSONObject commentList(@PathVariable("movie_no") int movie_no, @PathVariable("pageNum") int currentPage) {
         int totalContents = commentService.countComment(movie_no);
-
+        System.out.println(currentPage);
         PageMaker pageMaker = new PageMaker(15, currentPage, totalContents, 0);
         pageMaker.setMovie_no(movie_no);
         List<Comment> commentList = commentService.selectComment(pageMaker);
@@ -29,7 +29,7 @@ public class CommentController {
 
         hashMap.put("commentList", commentList);
         hashMap.put("pageMaker", pageMaker);
-
+//        System.out.println(commentList);
 //        System.out.println(commentList.get(1).getMovie_title());
         return new JSONObject(hashMap);
     }

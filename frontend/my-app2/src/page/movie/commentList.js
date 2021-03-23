@@ -2,30 +2,38 @@ import React from "react";
 import axios from "axios";
 
 class CommentList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.props.loadCommentWrapper(this.loadComment);
+        this.state = {
+            commentList: [],
+            pageMaker: []
+        }
+    }
 
     loadComment = async () => {
-        const pageNo = 1
-        console.log(pageNo);
+        // const pageNo = 1
+        // console.log(pageNo);
 
         // if (pageNo === 1)
         // console.log("detail params : " + param);
         // console.log(this.props.movieNo);
 
         axios
-            .get('/comments/' + this.props.movieNo + '/' + this.state.currentPage)
+            .get('/comments/' + this.props.movie_no + '/' + this.props.pageNo)
             .then(({data}) => {
+
                 this.setState({
-                    loading: true,
                     commentList: data.commentList,
                     pageMaker: data.pageMaker
                 });
                 console.log(this.state.commentList);
             })
             .catch(e => {
+                console.log("error!!!");
                 console.error(e);
-                this.setState({
-                    loading: false
-                });
+                // this.setState({
+                // });
             });
     };
 
@@ -38,15 +46,15 @@ class CommentList extends React.Component {
         // if (prevProps && this.props.commentData) {
         //     console.log("ff");
         //     console.log(this.props.commentData[0].userid);
-            // console.log(prevProps.commentData[0]);
+        // console.log(prevProps.commentData[0]);
 
-            // if (this.props.commentData[0].comment_no !== prevProps.commentData[0].comment_no) {
-            //     // this.props.fnc();
-            //
-            //     console.log(this.props.commentData[0].userid);
-            //     console.log(prevProps.commentData[0]);
-            //     console.log("fuck");
-            // }
+        // if (this.props.commentData[0].comment_no !== prevProps.commentData[0].comment_no) {
+        //     // this.props.fnc();
+        //
+        //     console.log(this.props.commentData[0].userid);
+        //     console.log(prevProps.commentData[0]);
+        //     console.log("fuck");
+        // }
         // }
         // console.log(this.props.commentData[0]);
         // console.log(this.props.commentData[1]);
@@ -59,22 +67,23 @@ class CommentList extends React.Component {
     }
 
     render() {
-        const {commentData} = this.props;
+        const {commentList} = this.state;
 
-        return(
-                <>
-            {commentData.map((moviedata) => {
-                return(
-                <li id="commentList">
-                    <div className="user_id">{moviedata.userid}</div>
-                    <div className="user_score">{moviedata.score}</div>
-                    <div className="user_comment"><p>{moviedata.content}</p></div>
-                    <div className="regdate">{moviedata.regdate}</div>
-                </li>
-                );
-            })}
-                </>
+        return (
+            <>
+                {commentList.map((moviedata) => {
+                    return (
+                        <li id="commentList">
+                            <div className="user_id">{moviedata.userid}</div>
+                            <div className="user_score">{moviedata.score}</div>
+                            <div className="user_comment"><p>{moviedata.content}</p></div>
+                            <div className="regdate">{moviedata.regdate}</div>
+                        </li>
+                    );
+                })}
+            </>
         );
     }
 }
+
 export default CommentList;

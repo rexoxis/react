@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 class MovieDetailList extends React.Component {
     render() {
         const movie_info = this.props.movie_info;
-        console.log(movie_info);
+        // console.log(movie_info);
         return(
             <>
             <div className="detail_contents">

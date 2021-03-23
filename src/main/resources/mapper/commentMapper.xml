@@ -10,10 +10,10 @@
     </insert>
 
     <select id="selectComment" statementType="PREPARED" resultType="Comment">
-        select c.* FROM(
-                            SELECT * FROM comment where movie_no = #{movie_no} order by regdate desc
-                        ) c
-        LIMIT #{startNum}, #{perPage}
+
+        SELECT * FROM comment where movie_no = #{movie_no} order by regdate desc LIMIT #{startNum}, #{perPage}
+
+
     </select>
 
 

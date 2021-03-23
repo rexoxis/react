@@ -18,8 +18,6 @@ class CommentInsert extends React.Component {
 
     handle_insert() {
         this.insert_comment();
-        // this.props.comment_load();
-
     }
 
     handleChange(e) {
@@ -42,6 +40,7 @@ class CommentInsert extends React.Component {
                     result: data,
                     content: ''
                 });
+                this.props.loadCommentWrapper();
             })
             .catch(e => {
                 console.error(e);

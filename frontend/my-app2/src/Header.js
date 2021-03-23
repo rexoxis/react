@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import "./css/header.css";
 import MovieDetail from "./page/movie/movieDetail";
 import Main from "./Main";
-import LoadMovies from "./page/movie/moviesPage";
+import MoviesPage from "./page/movie/moviesPage";
 
 
 
@@ -36,7 +36,7 @@ function Header() {
                 </nav>
 
                 <Route exact path = "/" component={Main}/>
-                <Route exact path = "/movies/:pageNo" component={LoadMovies} />
+                <Route exact path = "/movies/:pageNo" component={MoviesPage} />
                 <Route exact path = "/movies/detail/:movieNo" component={MovieDetail} />
                 <Route exact path = "/comments/:movieNo/:pageNo" component={MovieDetail} />
                 <Route path = "/movie/reserve"  />
