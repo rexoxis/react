@@ -4,6 +4,7 @@ import "./css/header.css";
 import MovieDetail from "./page/movie/movieDetail";
 import Main from "./Main";
 import MoviesPage from "./page/movie/moviesPage";
+import Calculater from "./page/calculater";
 
 
 
@@ -39,7 +40,7 @@ function Header() {
                 <Route exact path = "/movies/:pageNo" component={MoviesPage} />
                 <Route exact path = "/movies/detail/:movieNo" component={MovieDetail} />
                 <Route exact path = "/comments/:movieNo/:pageNo" component={MovieDetail} />
-                <Route path = "/movie/reserve"  />
+                <Route exact path = "/movie/reserve" component={Calculater} />
                 <Route path = "/notice"  />
                 <Route path = "/movie/movie_register" />
                 <Route path = "/movie/theater_register"  />
