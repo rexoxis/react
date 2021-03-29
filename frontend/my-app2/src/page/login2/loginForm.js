@@ -1,10 +1,12 @@
 import React from "react";
+import "../../css/login.css";
 
 class LoginForm extends React.Component {
 
+
     render() {
         return(
-            <div className="main">
+            <div className="login_main">
                 <div className="loginid">
                     <span>아이디</span>
                     <input type="text" id="loginUserid"/>
@@ -20,6 +22,5 @@ class LoginForm extends React.Component {
             </div>
         );
     }
-
 }
 export default LoginForm;

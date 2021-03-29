@@ -1,0 +1,12 @@
+.login_main {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+
+input {
+    margin-left: 20px;
+    width: 100px;
+}
+

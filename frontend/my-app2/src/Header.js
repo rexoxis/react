@@ -5,6 +5,7 @@ import MovieDetail from "./page/movie/movieDetail";
 import Main from "./Main";
 import MoviesPage from "./page/movie/moviesPage";
 import Calculater from "./page/calculater";
+import LoginForm from "./page/login2/loginForm";
 
 
 
@@ -44,7 +45,7 @@ function Header() {
                 <Route path = "/notice"  />
                 <Route path = "/movie/movie_register" />
                 <Route path = "/movie/theater_register"  />
-                <Route path = "/login/login"  />
+                <Route path = "/login/login" component={LoginForm} />
                 <Route path = "/join/joinmember"  />
                 <Route path = "/login/logout"  />
             </header>
