@@ -67,4 +67,19 @@ public class MemberRestController {
         return msg;
     }
 
+    // 로그아웃
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logOut(HttpSession session) {
+        String logoutCheck = "fail";
+        if (session.getAttribute("userid") != null) {
+
+            session.invalidate();
+
+            logoutCheck = "logout success";
+        }
+
+
+        return logoutCheck;
+    }
+
 }
